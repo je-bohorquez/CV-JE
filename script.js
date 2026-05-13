@@ -83,19 +83,19 @@ const UI = {
         document.getElementById('summary-text').innerText = DATA.summary;
 
         const kpiHTML = DATA.kpis.map(k => `
-            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-center">
-                <div class="text-2xl mb-1">${k.icon}</div>
-                <div class="text-2xl font-black text-slate-900">${k.val}</div>
-                <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">${k.label}</div>
+            <div class="bg-white/80 backdrop-blur-md p-6 rounded-3xl border border-white/50 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-center group">
+                <div class="text-3xl mb-3 transform group-hover:scale-110 transition-transform">${k.icon}</div>
+                <div class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-slate-600 mb-1">${k.val}</div>
+                <div class="text-[11px] uppercase font-bold text-slate-400 tracking-widest">${k.label}</div>
             </div>
         `).join('');
         document.getElementById('kpi-container').innerHTML = kpiHTML;
 
         const areasHTML = DATA.competencies.labels.map((l, i) => `
-            <li class="flex items-center gap-3">
-                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                <span class="font-medium text-slate-700">${l}</span>
-                <span class="ml-auto text-xs font-bold text-slate-400">${DATA.competencies.values[i]}%</span>
+            <li class="flex items-center gap-4 bg-slate-50/50 p-3 rounded-xl border border-slate-100">
+                <div class="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 shadow-sm"></div>
+                <span class="font-bold text-slate-700">${l}</span>
+                <span class="ml-auto text-sm font-black text-blue-600 bg-blue-50 px-2 py-1 rounded-lg">${DATA.competencies.values[i]}%</span>
             </li>
         `).join('');
         document.getElementById('key-areas-list').innerHTML = areasHTML;
