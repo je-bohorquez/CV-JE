@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Eder Bohorquez | Portfolio Interactivo</title>
+
+    <!-- Bibliotecas Externas -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Estilos Personalizados (Separación Visual de CSS) -->
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #3b82f6;
+            --bg-light: #f8fafc;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            scroll-behavior: smooth;
+        }
+
+        /* Contenedores de Gráficos - Requisitos de Estabilidad */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            height: 320px;
+            max-height: 400px;
+        }
+
+        /* Transiciones de Navegación */
+        .page-section {
+            display: none;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Estados de Navegación Lateral */
+        .nav-link.active {
+            background-color: rgba(59, 130, 246, 0.1);
+            border-right: 4px solid var(--accent);
+            color: var(--accent);
+        }
+
+        /* Estilización de tarjetas de experiencia */
+        .exp-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .exp-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+        }
+    </style>
+</head>
+
+<body class="text-slate-800 overflow-hidden h-screen flex">
+
+    <!-- Chosen Palette: Slate & Blue (Professional Intelligence) -->
+
+    <!-- Application Structure Plan: 
+         Se ha diseñado una estructura de "Single Page Application" con enrutamiento interno mediante JavaScript. 
+         La arquitectura separa los datos del reporte (en objetos JS) de la lógica de presentación.
+         El flujo de usuario es: Landing de Resumen (KPIs) -> Profundización en Experiencia -> Análisis Técnico -> Méritos.
+    -->
+
+    <!-- Visualization & Content Choices: 
+         - KPIs Financieros/Datos -> Goal: Impacto inmediato -> HTML Dinámico.
+         - Competencias BI -> Goal: Visualización de equilibrio -> Radar Chart (Chart.js).
+         - Historial de Reporte -> Goal: Navegación no lineal -> Sistema de filtrado/acordeón dinámico.
+    -->
+
+    <!-- CONFIRMATION: NO SVG used. NO Mermaid used. -->
+
+    <!-- Sidebar Navegación -->
+    <nav class="w-20 md:w-64 bg-white border-r border-slate-200 flex flex-col h-full z-30">
+        <div class="p-6 hidden md:block">
+            <h1 class="text-xl font-bold tracking-tighter text-slate-900">JE.BOHORQUEZ</h1>
+            <p class="text-xs text-slate-400 font-medium uppercase tracking-widest">Analytics & BI</p>
+        </div>
+
+        <div class="flex-1 mt-4 space-y-1">
+            <button onclick="router.navigate('home')" id="btn-home"
+                class="nav-link active w-full flex items-center p-4 md:px-6 gap-4 text-slate-500 hover:bg-slate-50 transition-all">
+                <span class="text-xl">🏠</span> <span class="hidden md:inline font-semibold">Inicio</span>
+            </button>
+            <button onclick="router.navigate('exp')" id="btn-exp"
+                class="nav-link w-full flex items-center p-4 md:px-6 gap-4 text-slate-500 hover:bg-slate-50 transition-all">
+                <span class="text-xl">💼</span> <span class="hidden md:inline font-semibold">Experiencia</span>
+            </button>
+            <button onclick="router.navigate('skills')" id="btn-skills"
+                class="nav-link w-full flex items-center p-4 md:px-6 gap-4 text-slate-500 hover:bg-slate-50 transition-all">
+                <span class="text-xl">📊</span> <span class="hidden md:inline font-semibold">Skills</span>
+            </button>
+            <button onclick="router.navigate('edu')" id="btn-edu"
+                class="nav-link w-full flex items-center p-4 md:px-6 gap-4 text-slate-500 hover:bg-slate-50 transition-all">
+                <span class="text-xl">🎓</span> <span class="hidden md:inline font-semibold">Educación</span>
+            </button>
+        </div>
+
+        <div class="p-4 border-t border-slate-100 hidden md:block">
+            <div class="bg-slate-900 rounded-xl p-4 text-white">
+                <p class="text-[10px] text-slate-400 uppercase font-bold mb-1">Contacto Directo</p>
+                <p class="text-sm font-medium truncate">jebohorquez@hotmail.com</p>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="flex-1 overflow-y-auto relative h-screen">
+
+        <!-- SECCIÓN: INICIO (HOME) -->
+        <section id="sec-home" class="page-section active p-6 md:p-12 lg:p-16">
+            <div class="max-w-5xl mx-auto">
+                <div class="mb-12">
+                    <span
+                        class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold mb-4 uppercase tracking-wider">Perfil
+                        Senior 2026</span>
+                    <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">Ingeniero Empresarial
+                        & <br><span class="text-blue-600">Estratega de Datos</span></h2>
+                    <p class="text-lg text-slate-600 leading-relaxed max-w-2xl" id="summary-text"></p>
+                </div>
+
+                <!-- Tarjetas de Métricas -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16" id="kpi-container">
+                    <!-- Dinámico -->
+                </div>
+
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-white p-8 rounded-3xl border border-slate-200">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-slate-800">Dominio de Áreas Clave</h3>
+                        <p class="text-slate-500 mb-6">Equilibrio entre la gestión financiera y el análisis de datos
+                            masivos para la toma de decisiones.</p>
+                        <ul class="space-y-4" id="key-areas-list">
+                            <!-- Dinámico -->
+                        </ul>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="mainRadarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: EXPERIENCIA (EXP) -->
+        <section id="sec-exp" class="page-section p-6 md:p-12 lg:p-16">
+            <div class="max-w-5xl mx-auto">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                    <div>
+                        <h2 class="text-4xl font-black text-slate-900">Historial de Impacto</h2>
+                        <p class="text-slate-500 mt-2">Explora los logros cuantificables en cada una de mis etapas
+                            profesionales.</p>
+                    </div>
+                    <div class="flex gap-2 bg-slate-100 p-1 rounded-lg" id="filter-container">
+                        <!-- Botones de filtro dinámicos -->
+                    </div>
+                </div>
+
+                <div class="space-y-6" id="timeline-container">
+                    <!-- Dinámico -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: SKILLS -->
+        <section id="sec-skills" class="page-section p-6 md:p-12 lg:p-16">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl font-black text-slate-900 mb-12">Ecosistema Tecnológico</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
+                        <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><span>💻</span> Data Stack</h3>
+                        <div class="chart-container h-[350px]">
+                            <canvas id="techSkillsChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
+                        <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><span>📈</span> Business Intelligence
+                        </h3>
+                        <div class="chart-container h-[350px]">
+                            <canvas id="biSkillsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: EDUCACIÓN -->
+        <section id="sec-edu" class="page-section p-6 md:p-12 lg:p-16">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl font-black text-slate-900 mb-12">Formación & Méritos</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12" id="edu-merit-container">
+                    <!-- Dinámico -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scripts de Lógica y Datos (Separación Funcional) -->
+    <script>
+        // --- 1. BASE DE DATOS (DATA SOURCE) ---
+        const DATA = {
+            summary: "Especialista en Inteligencia de Negocios y Analítica con más de 10 años de trayectoria. Transformo datos financieros y operativos en dashboards estratégicos, optimizando la toma de decisiones bajo estándares NIIF y metodologías ágiles.",
+            kpis: [
+                { label: 'Años Experiencia', val: '10+', icon: '⏳' },
+                { label: 'Procesos Optimizados', val: '15+', icon: '⚙️' },
+                { label: 'Especialización', val: 'BI/ETL', icon: '💎' },
+                { label: 'Certificaciones', val: '5+', icon: '📜' }
+            ],
+            competencies: {
+                labels: ['Análisis SQL', 'Power BI/DAX', 'Normas NIC/NIIF', 'Gestión EVM', 'Python/ETL'],
+                values: [90, 95, 85, 80, 75]
+            },
+            experience: [
+                {
+                    id: 1,
+                    role: "Responsable de Control Patrimonial",
+                    company: "EPS Selva Central S.A.",
+                    period: "2024 - Presente",
+                    type: "Público",
+                    details: [
+                        "Conciliación del 100% de activos bajo NIC 16/36.",
+                        "Reducción del 30% en sobrestock mediante dashboards de Kardex remoto.",
+                        "Automatización de procesos contables con Python y VBA."
+                    ]
+                },
+                {
+                    id: 2,
+                    role: "Analista de Negocios / BI",
+                    company: "Arrendamientos MAGUI",
+                    period: "2023",
+                    type: "Privado",
+                    details: [
+                        "Diseño de modelos SQL para control de morosidad.",
+                        "Automatización de prorrateo de servicios con VBA.",
+                        "Estandarización de flujos de cobranza en Bizagi."
+                    ]
+                },
+                {
+                    id: 3,
+                    role: "Analista de Proyectos",
+                    company: "PROMORE SAC",
+                    period: "2020 - 2023",
+                    type: "Privado",
+                    details: [
+                        "Control de indicadores SPI/CPI mediante EVM.",
+                        "Gestión de riesgos y planes de contingencia PMBOK.",
+                        "Optimización de trazabilidad documental."
+                    ]
+                }
+            ],
+            skills: {
+                tech: {
+                    labels: ['Excel VBA', 'SQL Server', 'Python', 'Power Query'],
+                    data: [98, 85, 75, 92]
+                },
+                bi: {
+                    labels: ['Power BI', 'ETL Logic', 'Bizagi BPM', 'Data Modeling'],
+                    data: [96, 90, 88, 92]
+                }
+            },
+            education: [
+                { title: "Ingeniería Empresarial", inst: "UTP", year: "2017-2022" },
+                { title: "Especialización Evaluación Proyectos", inst: "ESAN", year: "2018" },
+                { title: "Gestión por Procesos", inst: "TECSUP", year: "2017" }
+            ],
+            merits: [
+                { title: "Buenas Prácticas CAD", body: "Reconocimiento Ciudadanos al Día por indicadores de infraestructura." },
+                { title: "Reconocimiento OIP", body: "Estandarización de formatos y automatización AutoCAD." }
+            ]
+        };
+
+        // --- 2. MOTOR DE RENDERIZADO (UI LOGIC) ---
+        const UI = {
+            init() {
+                this.renderHome();
+                this.renderExperience();
+                this.renderSkills();
+                this.renderEducation();
+            },
+
+            renderHome() {
+                document.getElementById('summary-text').innerText = DATA.summary;
+
+                const kpiHTML = DATA.kpis.map(k => `
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-center">
+                        <div class="text-2xl mb-1">${k.icon}</div>
+                        <div class="text-2xl font-black text-slate-900">${k.val}</div>
+                        <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">${k.label}</div>
+                    </div>
+                `).join('');
+                document.getElementById('kpi-container').innerHTML = kpiHTML;
+
+                const areasHTML = DATA.competencies.labels.map((l, i) => `
+                    <li class="flex items-center gap-3">
+                        <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                        <span class="font-medium text-slate-700">${l}</span>
+                        <span class="ml-auto text-xs font-bold text-slate-400">${DATA.competencies.values[i]}%</span>
+                    </li>
+                `).join('');
+                document.getElementById('key-areas-list').innerHTML = areasHTML;
+
+                this.charts.mainRadar();
+            },
+
+            renderExperience(filter = 'Todos') {
+                const container = document.getElementById('timeline-container');
+                const filtered = filter === 'Todos' ? DATA.experience : DATA.experience.filter(e => e.type === filter);
+
+                container.innerHTML = filtered.map(e => `
+                    <div class="exp-card bg-white p-6 rounded-2xl border border-slate-100 flex flex-col md:flex-row gap-6 relative">
+                        <div class="md:w-1/4">
+                            <span class="text-xs font-black text-blue-600 uppercase tracking-widest">${e.period}</span>
+                            <h4 class="text-xl font-bold text-slate-900 mt-1">${e.company}</h4>
+                        </div>
+                        <div class="flex-1">
+                            <h5 class="text-lg font-bold text-slate-700 mb-3">${e.role}</h5>
+                            <ul class="space-y-2">
+                                ${e.details.map(d => `<li class="text-slate-500 flex gap-2">
+                                    <span class="text-blue-400 mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0"></span>
+                                    <span>${d}</span>
+                                </li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Render filtros
+                const filterBtns = ['Todos', 'Privado', 'Público'];
+                document.getElementById('filter-container').innerHTML = filterBtns.map(f => `
+                    <button onclick="UI.renderExperience('${f}')" class="px-4 py-1.5 text-xs font-bold rounded-md transition-all ${filter === f ? 'bg-white shadow-sm text-blue-600' : 'text-slate-500 hover:text-slate-900'}">
+                        ${f}
+                    </button>
+                `).join('');
+            },
+
+            renderSkills() {
+                this.charts.techBar();
+                this.charts.biBar();
+            },
+
+            renderEducation() {
+                const container = document.getElementById('edu-merit-container');
+                const eduHTML = `
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold flex items-center gap-2">🏛️ Académico</h3>
+                        ${DATA.education.map(e => `
+                            <div class="flex gap-4">
+                                <div class="w-1 bg-slate-200 rounded-full"></div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">${e.title}</h4>
+                                    <p class="text-sm text-slate-500">${e.inst} | ${e.year}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                const meritHTML = `
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold flex items-center gap-2">🏆 Reconocimientos</h3>
+                        ${DATA.merits.map(m => `
+                            <div class="bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
+                                <h4 class="font-bold text-blue-900 mb-1">${m.title}</h4>
+                                <p class="text-sm text-blue-700/70">${m.body}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                container.innerHTML = eduHTML + meritHTML;
+            },
+
+            charts: {
+                mainRadar() {
+                    new Chart(document.getElementById('mainRadarChart'), {
+                        type: 'radar',
+                        data: {
+                            labels: DATA.competencies.labels,
+                            datasets: [{
+                                data: DATA.competencies.values,
+                                backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                                borderColor: '#3b82f6',
+                                pointBackgroundColor: '#3b82f6',
+                                borderWidth: 2
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: { legend: { display: false } },
+                            scales: { r: { ticks: { display: false }, min: 0, max: 100 } }
+                        }
+                    });
+                },
+                techBar() {
+                    new Chart(document.getElementById('techSkillsChart'), {
+                        type: 'bar',
+                        data: {
+                            labels: DATA.skills.tech.labels,
+                            datasets: [{
+                                data: DATA.skills.tech.data,
+                                backgroundColor: '#0f172a',
+                                borderRadius: 8
+                            }]
+                        },
+                        options: {
+                            indexAxis: 'y',
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: { legend: { display: false } },
+                            scales: { x: { display: false, max: 100 }, y: { grid: { display: false } } }
+                        }
+                    });
+                },
+                biBar() {
+                    new Chart(document.getElementById('biSkillsChart'), {
+                        type: 'bar',
+                        data: {
+                            labels: DATA.skills.bi.labels,
+                            datasets: [{
+                                data: DATA.skills.bi.data,
+                                backgroundColor: '#3b82f6',
+                                borderRadius: 8
+                            }]
+                        },
+                        options: {
+                            indexAxis: 'y',
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: { legend: { display: false } },
+                            scales: { x: { display: false, max: 100 }, y: { grid: { display: false } } }
+                        }
+                    });
+                }
+            }
+        };
+
+        // --- 3. ENRUTADOR (ROUTER) ---
+        const router = {
+            navigate(section) {
+                // Actualizar UI
+                document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+                document.getElementById(`sec-${section}`).classList.add('active');
+
+                // Actualizar Nav
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                document.getElementById(`btn-${section}`).classList.add('active');
+
+                // Reset Scroll
+                document.querySelector('main').scrollTop = 0;
+            }
+        };
+
+        // Inicio automático
+        window.onload = () => UI.init();
+    </script>
+</body>
+
+</html>
