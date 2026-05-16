@@ -28,7 +28,9 @@
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Estilos Personalizados (Separación Visual de CSS) -->
     <link rel="stylesheet" href="style.css">
@@ -54,39 +56,55 @@
     <!-- CONFIRMATION: NO SVG used. NO Mermaid used. -->
 
     <!-- Sidebar / Bottom Nav (Mobile) -->
-    <nav class="w-full h-[76px] md:h-full md:w-64 bg-white border-t md:border-t-0 md:border-r border-cream flex md:flex-col z-30 flex-shrink-0 relative shadow-[0_-4px_20px_rgba(0,0,0,0.02)] md:shadow-none">
+    <nav
+        class="w-full h-[76px] md:h-full md:w-64 bg-white border-t md:border-t-0 md:border-r border-cream flex md:flex-col z-30 flex-shrink-0 relative shadow-[0_-4px_20px_rgba(0,0,0,0.02)] md:shadow-none">
         <div class="p-6 hidden md:flex flex-col items-center border-b border-cream">
-            <img src="img/Profile.jpg" alt="Juan Eder Bohorquez" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg mb-4 ring-2 ring-gold">
+            <img src="img/Profile.jpg" alt="Juan Eder Bohorquez"
+                class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg mb-4 ring-2 ring-gold">
             <h1 class="text-xl font-display font-bold tracking-tighter text-navy text-center">JE.BOHORQUEZ</h1>
             <p class="text-xs text-gray-500 font-medium uppercase tracking-widest text-center mt-1">Analytics & BI</p>
         </div>
 
-        <div class="flex-1 flex flex-row md:flex-col justify-around md:justify-start md:mt-4 md:space-y-1 items-center px-2 md:px-0">
+        <div
+            class="flex-1 flex flex-row md:flex-col justify-around md:justify-start md:mt-4 md:space-y-1 items-center px-2 md:px-0">
             <button onclick="router.navigate('home')" id="btn-home"
                 class="nav-link active flex-1 md:w-full flex flex-col md:flex-row items-center justify-center md:justify-start h-full md:h-auto py-2 md:py-4 md:px-6 gap-1 md:gap-4 text-gray-500 hover:bg-gray-50 transition-all rounded-xl md:rounded-none">
-                <i class="ph ph-squares-four text-[28px] text-gray-400 group-hover:text-navy transition-colors"></i> <span class="text-[10px] md:text-sm font-display font-bold group-hover:text-navy mt-0.5 md:mt-0">Resumen</span>
+                <i class="ph ph-squares-four text-[28px] text-gray-400 group-hover:text-navy transition-colors"></i>
+                <span
+                    class="text-[10px] md:text-sm font-display font-bold group-hover:text-navy mt-0.5 md:mt-0">Resumen</span>
             </button>
             <button onclick="router.navigate('exp')" id="btn-exp"
                 class="nav-link flex-1 md:w-full flex flex-col md:flex-row items-center justify-center md:justify-start h-full md:h-auto py-2 md:py-4 md:px-6 gap-1 md:gap-4 text-gray-500 hover:bg-gray-50 transition-all rounded-xl md:rounded-none">
-                <i class="ph ph-briefcase text-[28px] text-gray-400 group-hover:text-navy transition-colors"></i> <span class="text-[10px] md:text-sm font-display font-bold group-hover:text-navy mt-0.5 md:mt-0">Historia</span>
+                <i class="ph ph-briefcase text-[28px] text-gray-400 group-hover:text-navy transition-colors"></i> <span
+                    class="text-[10px] md:text-sm font-display font-bold group-hover:text-navy mt-0.5 md:mt-0">Experiencia</span>
             </button>
             <button onclick="router.navigate('skills')" id="btn-skills"
                 class="nav-link flex-1 md:w-full flex flex-col md:flex-row items-center justify-center md:justify-start h-full md:h-auto py-2 md:py-4 md:px-6 gap-1 md:gap-4 text-gray-500 hover:bg-gray-50 transition-all rounded-xl md:rounded-none">
-                <i class="ph ph-cpu text-[28px] text-gray-400 group-hover:text-navy transition-colors"></i> <span class="text-[10px] md:text-sm font-display font-bold group-hover:text-navy mt-0.5 md:mt-0">Skills</span>
+                <span class="flex-shrink-0 text-gray-400 group-hover:text-navy transition-colors"><svg
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-[28px] h-[28px]">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                    </svg></span> <span
+                    class="text-[10px] md:text-sm font-display font-bold group-hover:text-navy mt-0.5 md:mt-0">Skills</span>
             </button>
             <button onclick="router.navigate('edu')" id="btn-edu"
                 class="nav-link flex-1 md:w-full flex flex-col md:flex-row items-center justify-center md:justify-start h-full md:h-auto py-2 md:py-4 md:px-6 gap-1 md:gap-4 text-gray-500 hover:bg-gray-50 transition-all rounded-xl md:rounded-none">
-                <i class="ph ph-graduation-cap text-[28px] text-gray-400 group-hover:text-navy transition-colors"></i> <span class="text-[10px] md:text-sm font-display font-bold group-hover:text-navy mt-0.5 md:mt-0">Educación</span>
+                <i class="ph ph-graduation-cap text-[28px] text-gray-400 group-hover:text-navy transition-colors"></i>
+                <span
+                    class="text-[10px] md:text-sm font-display font-bold group-hover:text-navy mt-0.5 md:mt-0">Educación</span>
             </button>
         </div>
 
         <div class="p-4 border-t border-cream hidden md:block space-y-3">
-            <a href="pdf/cv-juaneder-26.pdf" download="CV_Juan_Eder_Bohorquez.pdf" target="_blank" class="w-full bg-gradient-to-r from-navy to-navy hover:from-navy hover:to-navy text-white text-sm font-display font-bold py-3 px-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2">
+            <a href="pdf/cv-juaneder-26.pdf" download="CV_Juan_Eder_Bohorquez.pdf" target="_blank"
+                class="w-full bg-gradient-to-r from-navy to-navy hover:from-navy hover:to-navy text-white text-sm font-display font-bold py-3 px-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2">
                 <i class="ph ph-download-simple text-xl"></i>
                 Descargar CV
             </a>
             <div class="bg-charcoal rounded-xl p-4 text-white shadow-md">
-                <p class="text-[10px] text-gray-400 uppercase font-display font-bold mb-1 tracking-wider">Contacto Directo</p>
+                <p class="text-[10px] text-gray-400 uppercase font-display font-bold mb-1 tracking-wider">Contacto
+                    Directo</p>
                 <p class="text-sm font-medium truncate mb-1">jebohorquez@hotmail.com</p>
                 <p class="text-sm font-medium truncate">+51 987 178 382</p>
             </div>
@@ -101,14 +119,18 @@
             <div class="max-w-5xl mx-auto w-full">
                 <!-- Symmetrical Hero -->
                 <div class="flex flex-col items-center text-center mb-10 relative">
-                    <span class="inline-block px-4 py-1.5 bg-navy text-white rounded-full text-xs font-display font-bold mb-6 uppercase tracking-widest shadow-lg shadow-navy/30 relative z-10">Perfil Senior 2026</span>
-                    
-                    <h2 class="text-4xl md:text-6xl font-display font-black text-charcoal mb-6 leading-tight tracking-tight relative z-10">
-                        Juan Eder Bohorquez <br/>
+                    <span
+                        class="inline-block px-4 py-1.5 bg-navy text-white rounded-full text-xs font-display font-bold mb-6 uppercase tracking-widest shadow-lg shadow-navy/30 relative z-10">Perfil
+                        Senior 2026</span>
+
+                    <h2
+                        class="text-4xl md:text-6xl font-display font-black text-charcoal mb-6 leading-tight tracking-tight relative z-10">
+                        Juan Eder Bohorquez <br />
                         <span class="text-navy">Analista de Inteligencia de Negocios</span>
                     </h2>
-                    
-                    <div class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto font-medium relative z-10 text-left md:text-center" id="summary-text"></div>
+
+                    <div class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto font-medium relative z-10 text-justify"
+                        id="summary-text"></div>
                 </div>
 
                 <!-- Tarjetas de Métricas -->
@@ -116,10 +138,13 @@
                     <!-- Dinámico -->
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-white/70 backdrop-blur-xl p-8 md:p-10 rounded-[2rem] border border-white/50 shadow-2xl">
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-white/70 backdrop-blur-xl p-8 md:p-10 rounded-[2rem] border border-white/50 shadow-2xl">
                     <div class="order-2 lg:order-1">
-                        <h3 class="text-3xl font-display font-black mb-4 text-charcoal tracking-tight">Dominio de Áreas Clave</h3>
-                        <p class="text-gray-500 mb-8 text-lg">Equilibrio estratégico entre gestión financiera directiva y orquestación masiva de datos corporativos.</p>
+                        <h3 class="text-3xl font-display font-black mb-4 text-charcoal tracking-tight">Dominio de Áreas
+                            Clave</h3>
+                        <p class="text-gray-500 mb-8 text-lg text-justify">Equilibrio estratégico entre gestión financiera directiva
+                            y orquestación masiva de datos corporativos.</p>
                         <ul class="space-y-4" id="key-areas-list">
                             <!-- Dinámico -->
                         </ul>
@@ -136,8 +161,10 @@
             <div class="max-w-5xl mx-auto">
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
                     <div>
-                        <h2 class="text-3xl font-display font-black text-charcoal leading-tight">Historial de Impacto</h2>
-                        <p class="text-sm text-gray-500 mt-1">Explora los logros cuantificables en cada una de mis etapas profesionales.</p>
+                        <h2 class="text-3xl font-display font-black text-charcoal leading-tight">Historial de Impacto
+                        </h2>
+                        <p class="text-sm text-gray-500 mt-1">Explora los logros cuantificables en cada una de mis
+                            etapas profesionales.</p>
                     </div>
                     <div class="flex gap-2 bg-cream p-1 rounded-lg" id="filter-container">
                         <!-- Botones de filtro dinámicos -->
@@ -153,17 +180,23 @@
         <!-- SECCIÓN: SKILLS -->
         <section id="sec-skills" class="page-section p-6 md:p-10 lg:p-12 pt-8 md:pt-10">
             <div class="max-w-5xl mx-auto">
-                <h2 class="text-3xl font-display font-black text-charcoal mb-4 leading-tight">Ecosistema Tecnológico</h2>
-                <p class="text-gray-500 mb-8 max-w-3xl text-lg">Arquitectura integral de herramientas orientada a la eficiencia corporativa. Combino soluciones de ingeniería de datos (Data Stack) para garantizar la integridad y flujo de la información, con plataformas avanzadas de análisis (Business Intelligence) para la generación de insights estratégicos.</p>
+                <h2 class="text-3xl font-display font-black text-charcoal mb-4 leading-tight">Ecosistema Tecnológico
+                </h2>
+                <p class="text-gray-500 mb-8 max-w-3xl text-lg text-justify">Arquitectura integral de herramientas orientada a la
+                    eficiencia corporativa. Combino soluciones de ingeniería de datos (Data Stack) para garantizar la
+                    integridad y flujo de la información, con plataformas avanzadas de análisis (Business Intelligence)
+                    para la generación de insights estratégicos.</p>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-                        <h3 class="text-xl font-display font-bold mb-6 flex items-center gap-3"><i class="ph ph-database text-[28px] text-navy"></i> Data Stack</h3>
+                        <h3 class="text-xl font-display font-bold mb-6 flex items-center gap-3"><i
+                                class="ph ph-database text-[28px] text-navy"></i> Data Stack</h3>
                         <div class="chart-container h-[350px]">
                             <canvas id="techSkillsChart"></canvas>
                         </div>
                     </div>
                     <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-                        <h3 class="text-xl font-display font-bold mb-6 flex items-center gap-3"><i class="ph ph-chart-line-up text-[28px] text-navy"></i> Business Intelligence</h3>
+                        <h3 class="text-xl font-display font-bold mb-6 flex items-center gap-3"><i
+                                class="ph ph-chart-line-up text-[28px] text-navy"></i> Business Intelligence</h3>
                         <div class="chart-container h-[350px]">
                             <canvas id="biSkillsChart"></canvas>
                         </div>

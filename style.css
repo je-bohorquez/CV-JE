@@ -7,8 +7,7 @@
 }
 
 body {
-    background-color: var(--bg-light);
-    background-image: radial-gradient(at 0% 0%, rgba(255, 255, 255, 0.6) 0, transparent 50%), radial-gradient(at 100% 100%, rgba(242, 201, 17, 0.05) 0, transparent 50%);
+    background-color: #ffffff;
     scroll-behavior: smooth;
     font-family: 'Inter', sans-serif;
 }

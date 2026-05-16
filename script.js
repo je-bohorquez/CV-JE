@@ -1,10 +1,10 @@
 const DATA = {
-    summary: "Especialista en Inteligencia de Negocios (BI) e Ingeniero Empresarial enfocado en maximizar el rendimiento financiero mediante datos. Poseo un sólido dominio en Arquitectura ETL, Modelado Dimensional y Control Estratégico. Transformo grandes volúmenes de datos en ecosistemas automatizados y confiables que empoderan a las gerencias directivas para la toma de decisiones ágiles y rentables.",
+    summary: "Consultor Analítico e Ingeniero Empresarial enfocado en maximizar el rendimiento financiero corporativo. Transformo infraestructuras complejas de datos en soluciones ágiles y escalables.<br/><br/><strong>• Arquitectura de Datos:</strong> Diseño de flujos ETL y almacenes centralizados.<br/><strong>• Control Estratégico:</strong> Modelado para eficiencia presupuestal y rentabilidad.<br/><strong>• BI Analytics:</strong> Dashboards y métricas ejecutivas para alta gerencia.",
     kpis: [
-        { label: 'Años Exp.', val: '8+', icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>' },
-        { label: 'Procesos BI', val: '10+', icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" /></svg>' },
-        { label: 'Dominio', val: 'ETL/NIIF', icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.438 4.438 0 002.746 2.746 4.493 4.493 0 004.306-1.758m-6.062-5.293a4.5 4.5 0 01-1.05-1.05m-1.41-1.41a4.5 4.5 0 01-1.05-1.05" /></svg>' },
-        { label: 'Certificados', val: '7+', icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>' }
+        { label: 'Años Exp.', val: '8+', icon: '<i class="ph ph-briefcase text-[32px]"></i>' },
+        { label: 'Procesos BI', val: '10+', icon: '<i class="ph ph-strategy text-[32px]"></i>' },
+        { label: 'Dominio', val: 'ETL/NIIF', icon: '<i class="ph ph-cube-transparent text-[32px]"></i>' },
+        { label: 'Certificados', val: '7+', icon: '<i class="ph ph-certificate text-[32px]"></i>' }
     ],
     competencies: {
         labels: ['Power BI / DAX', 'SQL Server / ETL', 'Python / Auto', 'NIIF & Finanzas', 'EVM / Proyectos'],
@@ -88,7 +88,7 @@ const UI = {
     },
 
     renderHome() {
-        document.getElementById('summary-text').innerText = DATA.summary;
+        document.getElementById('summary-text').innerHTML = DATA.summary;
 
         const kpiHTML = DATA.kpis.map((k, index) => `
             <div class="bg-white/80 backdrop-blur-md p-6 rounded-3xl border border-white/50 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-center group stagger-anim" style="animation-delay: ${index * 100}ms">
@@ -150,10 +150,10 @@ const UI = {
         const container = document.getElementById('edu-merit-container');
         const eduHTML = `
             <div class="space-y-6">
-                <h3 class="text-2xl font-display font-bold flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 text-navy"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>
-                    Académico
-                </h3>
+                    <h3 class="text-xl font-display font-bold text-navy mt-12 mb-6 flex items-center gap-2">
+                        <i class="ph ph-student text-[28px]"></i>
+                        Académico
+                    </h3>
                 ${DATA.education.map((e, index) => `
                     <div class="flex gap-4 stagger-anim" style="animation-delay: ${index * 150}ms">
                         <div class="w-1 bg-gray-200 rounded-full"></div>
@@ -167,10 +167,10 @@ const UI = {
         `;
         const meritHTML = `
             <div class="space-y-6">
-                <h3 class="text-2xl font-display font-bold flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 text-gold"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0" /></svg>
-                    Reconocimientos
-                </h3>
+                    <h3 class="text-xl font-display font-bold text-gold mb-6 flex items-center gap-2">
+                        <i class="ph ph-medal text-[28px]"></i>
+                        Reconocimientos
+                    </h3>
                 ${DATA.merits.map((m, index) => `
                     <div class="bg-cream/50 p-6 rounded-2xl border border-cream stagger-anim" style="animation-delay: ${index * 150}ms">
                         <h4 class="font-display font-bold text-navy mb-1">${m.title}</h4>
