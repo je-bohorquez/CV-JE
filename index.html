@@ -39,23 +39,11 @@
 
 <body class="text-charcoal bg-white overflow-hidden h-screen flex flex-col-reverse md:flex-row">
 
-    <!-- Chosen Palette: Slate & Blue (Professional Intelligence) -->
+    <!-- Chosen Palette: Navy & Gold (BI Specialist) -->
 
-    <!-- Application Structure Plan: 
-         Se ha diseñado una estructura de "Single Page Application" con enrutamiento interno mediante JavaScript. 
-         La arquitectura separa los datos del reporte (en objetos JS) de la lógica de presentación.
-         El flujo de usuario es: Landing de Resumen (KPIs) -> Profundización en Experiencia -> Análisis Técnico -> Méritos.
-    -->
-
-    <!-- Visualization & Content Choices: 
-         - KPIs Financieros/Datos -> Goal: Impacto inmediato -> HTML Dinámico.
-         - Competencias BI -> Goal: Visualización de equilibrio -> Radar Chart (Chart.js).
-         - Historial de Reporte -> Goal: Navegación no lineal -> Sistema de filtrado/acordeón dinámico.
-    -->
-
-    <!-- CONFIRMATION: NO SVG used. NO Mermaid used. -->
-
-    <!-- Sidebar / Bottom Nav (Mobile) -->
+    <!-- ==========================================
+         SIDEBAR / BOTTOM NAVIGATION (MOBILE)
+         ========================================== -->
     <nav
         class="w-full h-[76px] md:h-full md:w-64 bg-white border-t md:border-t-0 md:border-r border-cream flex md:flex-col z-30 flex-shrink-0 relative shadow-[0_-4px_20px_rgba(0,0,0,0.02)] md:shadow-none">
         <div class="p-6 hidden md:flex flex-col items-center border-b border-cream">
@@ -111,10 +99,12 @@
         </div>
     </nav>
 
-    <!-- Contenido Principal -->
-    <main class="flex-1 overflow-y-auto relative h-screen">
+    <!-- ==========================================
+         MAIN CONTENT AREA
+         ========================================== -->
+    <main class="flex-1 overflow-y-auto relative h-[calc(100vh-4rem)] md:h-screen w-full bg-slate-50/50">
 
-        <!-- SECCIÓN: INICIO (HOME) -->
+        <!-- SECCIÓN: INICIO (Resumen y KPIs) -->
         <section id="sec-home" class="page-section active p-6 md:p-10 lg:p-12 pt-8 md:pt-10">
             <div class="max-w-5xl mx-auto w-full">
                 <!-- Symmetrical Hero -->
@@ -217,7 +207,9 @@
 
     </main>
 
-    <!-- Scripts de Lógica y Datos (Separación Funcional) -->
+    <!-- ==========================================
+         SCRIPTS Y LÓGICA DE DATOS
+         ========================================== -->
     <script src="script.js"></script>
 </body>
 

@@ -68,9 +68,12 @@ const DATA = {
         }
     },
     education: [
-        { title: "Business Analytics & Intelligence", inst: "EEP Posgrado", year: "2026" },
-        { title: "Especialización Gestión Pública", inst: "CIFP", year: "2025" },
-        { title: "Ingeniería Empresarial", inst: "UTP", year: "2017 - 2022" }
+        { title: "Especialización Business Analytics & Intelligence", inst: "Escuela de Especialización y Posgrado - EEP", year: "2026 - actualidad" },
+        { title: "Especialización Gestión Pública", inst: "Centro Integrado de Formación Profesional - CIFP", year: "feb 2025 - feb 2026" },
+        { title: "Técnico en Big Data", inst: "Fundación Carlos Slim", year: "2023" },
+        { title: "Técnico en Inteligencia de Negocios", inst: "Fundación Carlos Slim", year: "2023" },
+        { title: "Especialización en Monitoreo y Evaluación de Proyectos", inst: "Universidad ESAN", year: "2017 - 2018" },
+        { title: "Ingeniería Empresarial", inst: "UTP Universidad Tecnológica del Perú", year: "2017 - 2022" }
     ],
     merits: [
         { title: "Premio CAD (Ciudadanos al Día)", body: "Reconocimiento nacional por indicadores de optimización de infraestructura (2017)." },
@@ -126,7 +129,7 @@ const UI = {
                     <ul class="space-y-2">
                         ${e.details.map(d => `<li class="text-gray-500 flex gap-2">
                             <span class="text-gold mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>
-                            <span>${d}</span>
+                            <span class="text-justify">${d}</span>
                         </li>`).join('')}
                     </ul>
                 </div>
@@ -174,7 +177,7 @@ const UI = {
                 ${DATA.merits.map((m, index) => `
                     <div class="bg-cream/50 p-6 rounded-2xl border border-cream stagger-anim" style="animation-delay: ${index * 150}ms">
                         <h4 class="font-display font-bold text-navy mb-1">${m.title}</h4>
-                        <p class="text-sm text-mgray">${m.body}</p>
+                        <p class="text-sm text-mgray text-justify">${m.body}</p>
                     </div>
                 `).join('')}
             </div>
