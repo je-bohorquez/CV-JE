@@ -1,13 +1,20 @@
 :root {
-    --primary: #0f172a;
-    --accent: #3b82f6;
-    --bg-light: #f8fafc;
+    --primary: #1448a0; /* Navy Blue */
+    --accent: #f2c911; /* Gold */
+    --accent-light: rgba(242, 201, 17, 0.15);
+    --bg-light: #f0e6d2; /* Cream/Beige */
+    --text-dark: #1a1a1a;
 }
 
 body {
     background-color: var(--bg-light);
-    background-image: radial-gradient(at 0% 0%, hsla(210,100%,95%,1) 0, transparent 50%), radial-gradient(at 100% 100%, hsla(230,100%,95%,1) 0, transparent 50%);
+    background-image: radial-gradient(at 0% 0%, rgba(255, 255, 255, 0.6) 0, transparent 50%), radial-gradient(at 100% 100%, rgba(242, 201, 17, 0.05) 0, transparent 50%);
     scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .font-black {
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 /* Contenedores de Gráficos - Requisitos de Estabilidad */
@@ -20,31 +27,37 @@ body {
     max-height: 400px;
 }
 
-/* Transiciones de Navegación */
+/* Transiciones de Navegación UX Optimizadas */
 .page-section {
     display: none;
-    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
 }
 
 .page-section.active {
     display: block;
+    animation: smoothReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
+.stagger-anim {
+    opacity: 0;
+    animation: smoothReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 
-    to {
+@keyframes smoothReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(15px) scale(0.98);
+    }
+    100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
 /* Estados de Navegación Lateral */
 .nav-link.active {
-    background-color: rgba(59, 130, 246, 0.1);
+    background-color: var(--accent-light);
     border-right: 4px solid var(--accent);
     color: var(--accent);
 }

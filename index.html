@@ -6,15 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juan Eder Bohorquez | Portfolio Interactivo</title>
 
-    <!-- Bibliotecas Externas -->
+    <!-- Bibliotecas Externas y Tipografías -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#1448a0',
+                        gold: '#f2c911',
+                        cream: '#f0e6d2',
+                        charcoal: '#1a1a1a',
+                        mgray: '#333333'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Estilos Personalizados (Separación Visual de CSS) -->
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="text-slate-800 overflow-hidden h-screen flex">
+<body class="text-charcoal overflow-hidden h-screen flex">
 
     <!-- Chosen Palette: Slate & Blue (Professional Intelligence) -->
 
@@ -33,41 +53,43 @@
     <!-- CONFIRMATION: NO SVG used. NO Mermaid used. -->
 
     <!-- Sidebar Navegación -->
-    <nav class="w-20 md:w-64 bg-white border-r border-slate-200 flex flex-col h-full z-30">
-        <div class="p-6 hidden md:block">
-            <h1 class="text-xl font-bold tracking-tighter text-slate-900">JE.BOHORQUEZ</h1>
-            <p class="text-xs text-slate-400 font-medium uppercase tracking-widest">Analytics & BI</p>
+    <nav class="w-20 md:w-64 bg-white border-r border-gray-200 flex flex-col h-full z-30">
+        <div class="p-6 hidden md:flex flex-col items-center border-b border-cream">
+            <img src="img/Profile.jpg" alt="Juan Eder Bohorquez" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg mb-4 ring-2 ring-gold">
+            <h1 class="text-xl font-display font-bold tracking-tighter text-navy text-center">JE.BOHORQUEZ</h1>
+            <p class="text-xs text-gray-500 font-medium uppercase tracking-widest text-center mt-1">Analytics & BI</p>
         </div>
 
         <div class="flex-1 mt-4 space-y-1">
             <button onclick="router.navigate('home')" id="btn-home"
-                class="nav-link active w-full flex items-center p-4 md:px-6 gap-4 text-slate-500 hover:bg-slate-50 transition-all">
-                <span class="text-xl">🏠</span> <span class="hidden md:inline font-semibold">Inicio</span>
+                class="nav-link active w-full flex flex-col md:flex-row items-center justify-center md:justify-start py-4 md:px-6 gap-1 md:gap-4 text-gray-500 hover:bg-cream transition-all">
+                <span class="text-xl flex-shrink-0 w-6 h-6 text-gray-400 group-hover:text-navy transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg></span> <span class="text-[10px] md:text-sm font-display font-bold group-hover:text-navy">Inicio</span>
             </button>
             <button onclick="router.navigate('exp')" id="btn-exp"
-                class="nav-link w-full flex items-center p-4 md:px-6 gap-4 text-slate-500 hover:bg-slate-50 transition-all">
-                <span class="text-xl">💼</span> <span class="hidden md:inline font-semibold">Experiencia</span>
+                class="nav-link w-full flex flex-col md:flex-row items-center justify-center md:justify-start py-4 md:px-6 gap-1 md:gap-4 text-gray-500 hover:bg-cream transition-all">
+                <span class="text-xl flex-shrink-0 w-6 h-6 text-gray-400 group-hover:text-navy transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" /></svg></span> <span class="text-[10px] md:text-sm font-display font-bold group-hover:text-navy">Experiencia</span>
             </button>
             <button onclick="router.navigate('skills')" id="btn-skills"
-                class="nav-link w-full flex items-center p-4 md:px-6 gap-4 text-slate-500 hover:bg-slate-50 transition-all">
-                <span class="text-xl">📊</span> <span class="hidden md:inline font-semibold">Skills</span>
+                class="nav-link w-full flex flex-col md:flex-row items-center justify-center md:justify-start py-4 md:px-6 gap-1 md:gap-4 text-gray-500 hover:bg-cream transition-all">
+                <span class="text-xl flex-shrink-0 w-6 h-6 text-gray-400 group-hover:text-navy transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg></span> <span class="text-[10px] md:text-sm font-display font-bold group-hover:text-navy">Skills</span>
             </button>
             <button onclick="router.navigate('edu')" id="btn-edu"
-                class="nav-link w-full flex items-center p-4 md:px-6 gap-4 text-slate-500 hover:bg-slate-50 transition-all">
-                <span class="text-xl">🎓</span> <span class="hidden md:inline font-semibold">Educación</span>
+                class="nav-link w-full flex flex-col md:flex-row items-center justify-center md:justify-start py-4 md:px-6 gap-1 md:gap-4 text-gray-500 hover:bg-cream transition-all">
+                <span class="text-xl flex-shrink-0 w-6 h-6 text-gray-400 group-hover:text-navy transition-colors"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg></span> <span class="text-[10px] md:text-sm font-display font-bold group-hover:text-navy">Educación</span>
             </button>
         </div>
 
-        <div class="p-4 border-t border-slate-100 hidden md:block space-y-3">
-            <a href="pdf/cv-je-2026.pdf" download="CV_Juan_Eder_Bohorquez.pdf" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-sm font-bold py-3 px-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2">
+        <div class="p-4 border-t border-cream hidden md:block space-y-3">
+            <a href="pdf/cv-juaneder-26.pdf" download="CV_Juan_Eder_Bohorquez.pdf" target="_blank" class="w-full bg-gradient-to-r from-navy to-navy hover:from-navy hover:to-navy text-white text-sm font-display font-bold py-3 px-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
                 </svg>
                 Descargar CV
             </a>
-            <div class="bg-slate-900 rounded-xl p-4 text-white shadow-md">
-                <p class="text-[10px] text-slate-400 uppercase font-bold mb-1 tracking-wider">Contacto Directo</p>
-                <p class="text-sm font-medium truncate">jebohorquez@hotmail.com</p>
+            <div class="bg-charcoal rounded-xl p-4 text-white shadow-md">
+                <p class="text-[10px] text-gray-400 uppercase font-display font-bold mb-1 tracking-wider">Contacto Directo</p>
+                <p class="text-sm font-medium truncate mb-1">jebohorquez@hotmail.com</p>
+                <p class="text-sm font-medium truncate">+51 987 178 382</p>
             </div>
         </div>
     </nav>
@@ -76,36 +98,32 @@
     <main class="flex-1 overflow-y-auto relative h-screen">
 
         <!-- SECCIÓN: INICIO (HOME) -->
-        <section id="sec-home" class="page-section active p-6 md:p-12 lg:p-16 flex items-center justify-center min-h-[calc(100vh-4rem)]">
+        <section id="sec-home" class="page-section active p-6 md:p-10 lg:p-12 pt-8 md:pt-10">
             <div class="max-w-5xl mx-auto w-full">
                 <!-- Symmetrical Hero -->
-                <div class="flex flex-col items-center text-center mb-16 relative">
-                    <!-- Sutil glow detras de la foto -->
-                    <div class="absolute top-0 w-64 h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+                <div class="flex flex-col items-center text-center mb-10 relative">
+                    <!-- Sutil glow -->
+                    <div class="absolute top-0 w-64 h-64 bg-gold rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
                     
-                    <div class="flex-shrink-0 mb-8 relative z-10">
-                        <img src="img/Profile.jpg" alt="Juan Eder Bohorquez" class="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-white shadow-2xl ring-4 ring-blue-50/50">
-                    </div>
+                    <span class="inline-block px-4 py-1.5 bg-gradient-to-r from-navy to-navy text-white rounded-full text-xs font-display font-bold mb-6 uppercase tracking-widest shadow-lg shadow-navy/30 relative z-10">Perfil Senior 2026</span>
                     
-                    <span class="inline-block px-4 py-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-xs font-bold mb-6 uppercase tracking-widest shadow-lg shadow-blue-500/30">Perfil Senior 2026</span>
-                    
-                    <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight tracking-tight">
-                        Ingeniero Empresarial <br/>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">Estratega de Datos</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-black text-charcoal mb-6 leading-tight tracking-tight relative z-10">
+                        Juan Eder Bohorquez <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-navy to-gold">Analista de Inteligencia de Negocios</span>
                     </h2>
                     
-                    <p class="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto font-light" id="summary-text"></p>
+                    <p class="text-lg md:text-xl text-mgray leading-relaxed max-w-3xl mx-auto font-medium relative z-10" id="summary-text"></p>
                 </div>
 
                 <!-- Tarjetas de Métricas -->
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16" id="kpi-container">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10" id="kpi-container">
                     <!-- Dinámico -->
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-white/60 backdrop-blur-xl p-10 rounded-3xl border border-white/40 shadow-xl">
                     <div class="order-2 lg:order-1">
-                        <h3 class="text-3xl font-black mb-4 text-slate-800 tracking-tight">Dominio de Áreas Clave</h3>
-                        <p class="text-slate-500 mb-8 text-lg">Equilibrio perfecto entre la gestión financiera estratégica y el análisis de datos masivos para la toma de decisiones.</p>
+                        <h3 class="text-3xl font-display font-black mb-4 text-charcoal tracking-tight">Dominio de Áreas Clave</h3>
+                        <p class="text-gray-500 mb-8 text-lg">Equilibrio perfecto entre la gestión financiera estratégica y el análisis de datos masivos para la toma de decisiones.</p>
                         <ul class="space-y-4" id="key-areas-list">
                             <!-- Dinámico -->
                         </ul>
@@ -118,15 +136,14 @@
         </section>
 
         <!-- SECCIÓN: EXPERIENCIA (EXP) -->
-        <section id="sec-exp" class="page-section p-6 md:p-12 lg:p-16">
+        <section id="sec-exp" class="page-section p-6 md:p-10 lg:p-12 pt-8 md:pt-10">
             <div class="max-w-5xl mx-auto">
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
                     <div>
-                        <h2 class="text-4xl font-black text-slate-900">Historial de Impacto</h2>
-                        <p class="text-slate-500 mt-2">Explora los logros cuantificables en cada una de mis etapas
-                            profesionales.</p>
+                        <h2 class="text-3xl font-display font-black text-charcoal leading-tight">Historial de Impacto</h2>
+                        <p class="text-sm text-gray-500 mt-1">Explora los logros cuantificables en cada una de mis etapas profesionales.</p>
                     </div>
-                    <div class="flex gap-2 bg-slate-100 p-1 rounded-lg" id="filter-container">
+                    <div class="flex gap-2 bg-cream p-1 rounded-lg" id="filter-container">
                         <!-- Botones de filtro dinámicos -->
                     </div>
                 </div>
@@ -138,18 +155,18 @@
         </section>
 
         <!-- SECCIÓN: SKILLS -->
-        <section id="sec-skills" class="page-section p-6 md:p-12 lg:p-16">
+        <section id="sec-skills" class="page-section p-6 md:p-10 lg:p-12 pt-8 md:pt-10">
             <div class="max-w-5xl mx-auto">
-                <h2 class="text-4xl font-black text-slate-900 mb-12">Ecosistema Tecnológico</h2>
+                <h2 class="text-3xl font-display font-black text-charcoal mb-8 leading-tight">Ecosistema Tecnológico</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
-                        <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><span>💻</span> Data Stack</h3>
+                    <div class="bg-white p-8 rounded-2xl border border-cream shadow-sm">
+                        <h3 class="text-xl font-display font-bold mb-6 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-navy"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" /></svg> Data Stack</h3>
                         <div class="chart-container h-[350px]">
                             <canvas id="techSkillsChart"></canvas>
                         </div>
                     </div>
-                    <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
-                        <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><span>📈</span> Business Intelligence
+                    <div class="bg-white p-8 rounded-2xl border border-cream shadow-sm">
+                        <h3 class="text-xl font-display font-bold mb-6 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-navy"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg> Business Intelligence
                         </h3>
                         <div class="chart-container h-[350px]">
                             <canvas id="biSkillsChart"></canvas>
@@ -160,9 +177,9 @@
         </section>
 
         <!-- SECCIÓN: EDUCACIÓN -->
-        <section id="sec-edu" class="page-section p-6 md:p-12 lg:p-16">
+        <section id="sec-edu" class="page-section p-6 md:p-10 lg:p-12 pt-8 md:pt-10">
             <div class="max-w-5xl mx-auto">
-                <h2 class="text-4xl font-black text-slate-900 mb-12">Formación & Méritos</h2>
+                <h2 class="text-3xl font-display font-black text-charcoal mb-8 leading-tight">Formación & Méritos</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12" id="edu-merit-container">
                     <!-- Dinámico -->
                 </div>
