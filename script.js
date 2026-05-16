@@ -1,5 +1,5 @@
 const DATA = {
-    summary: "Analista BI e Ingeniero Empresarial enfocado en finanzas y control de gestión. Especialista en orquestación de datos (ETL) y visualización estratégica. Automatizo flujos complejos y diseño modelos (PIA/PIM) que aceleran la toma de decisiones gerenciales.",
+    summary: "Especialista en Inteligencia de Negocios (BI) e Ingeniero Empresarial enfocado en maximizar el rendimiento financiero mediante datos. Poseo un sólido dominio en Arquitectura ETL, Modelado Dimensional y Control Estratégico. Transformo grandes volúmenes de datos en ecosistemas automatizados y confiables que empoderan a las gerencias directivas para la toma de decisiones ágiles y rentables.",
     kpis: [
         { label: 'Años Exp.', val: '8+', icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>' },
         { label: 'Procesos BI', val: '10+', icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" /></svg>' },
@@ -13,36 +13,36 @@ const DATA = {
     experience: [
         {
             id: 1,
-            role: "Analista BI & Control Patrimonial",
+            role: "Analista Senior BI & Control Patrimonial",
             company: "EPS Selva Central",
             period: "Dic 2024 - Presente",
             type: "Público",
             details: [
-                "Desarrolló dashboards en Power BI para control de inventarios, reduciendo el sobrestock en un 30%.",
-                "Automatizó conciliaciones de datos (Patrimonio vs Contabilidad) usando Python y VBA, acortando tiempos operativos.",
-                "Gestionó y concilio el 100% de activos bajo estándares internacionales NIIF (NIC 16/36)."
+                "Lideré el diseño e implementación de ecosistemas analíticos en Power BI enfocados en gestión logística, logrando una reducción histórica del 30% en sobrestock.",
+                "Orquesté la automatización de conciliaciones de datos (Patrimonio vs Contabilidad) empleando Python y VBA, minimizando drásticamente la carga operativa.",
+                "Garanticé la trazabilidad y cumplimiento financiero del 100% de activos bajo las estrictas normativas internacionales NIIF (NIC 16/36)."
             ]
         },
         {
             id: 2,
-            role: "Analista de Procesos y Datos",
+            role: "Analista de Procesos y Datos Estratégicos",
             company: "Promore Inmobiliaria",
             period: "Oct 2023 - Dic 2024",
             type: "Privado",
             details: [
-                "Implementó metodologías EVM (SPI/CPI) para control de proyectos, minimizando desviaciones en cronograma y presupuesto.",
-                "Centralizó la documentación en un repositorio digital único y automatizó la gestión de riesgos."
+                "Implementé metodologías de Valor Ganado (EVM) para el monitoreo avanzado de proyectos, mitigando desviaciones críticas en cronograma y presupuesto.",
+                "Consolidé un repositorio digital centralizado que optimizó la accesibilidad documental y la automatización en la gestión de riesgos corporativos."
             ]
         },
         {
             id: 3,
-            role: "Consultor de Procesos BPM",
+            role: "Consultor de Mejora Continua y BPM",
             company: "EPS Selva Central",
             period: "Oct 2023 - Dic 2024",
             type: "Público",
             details: [
-                "Rediseñó flujos de control patrimonial usando Bizagi, estandarizando el 100% de altas y bajas.",
-                "Clasificó activos estratégicos mediante el modelo ABC, optimizando las prioridades de inversión."
+                "Reestructuré flujos de control patrimonial mediante Bizagi, alcanzando una estandarización del 100% en los procesos de altas y bajas de activos.",
+                "Diseñé un modelo de clasificación ABC que redefinió y optimizó la asignación de prioridades de inversión de capital."
             ]
         },
         {
