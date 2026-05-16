@@ -1,11 +1,18 @@
+/* ==========================================
+   VARIABLES DE DISEÑO (TOKENS)
+   ========================================== */
 :root {
-    --primary: #1448a0; /* Navy Blue */
-    --accent: #f2c911; /* Gold */
+    --primary: #1448a0;
+    --accent: #f2c911;
     --accent-light: rgba(242, 201, 17, 0.15);
-    --bg-light: #f0e6d2; /* Cream/Beige */
+    --sidebar-bg: #1a1a1a;
+    --sidebar-hover: #333333;
     --text-dark: #1a1a1a;
 }
 
+/* ==========================================
+   BASE
+   ========================================== */
 body {
     background-color: #ffffff;
     scroll-behavior: smooth;
@@ -16,7 +23,9 @@ h1, h2, h3, h4, h5, h6, .font-black {
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Contenedores de Gráficos - Requisitos de Estabilidad */
+/* ==========================================
+   GRÁFICOS (Chart.js)
+   ========================================== */
 .chart-container {
     position: relative;
     width: 100%;
@@ -26,7 +35,9 @@ h1, h2, h3, h4, h5, h6, .font-black {
     max-height: 400px;
 }
 
-/* Transiciones de Navegación UX Optimizadas */
+/* ==========================================
+   TRANSICIONES DE SECCIÓN
+   ========================================== */
 .page-section {
     display: none;
     opacity: 0;
@@ -44,24 +55,31 @@ h1, h2, h3, h4, h5, h6, .font-black {
 }
 
 @keyframes smoothReveal {
-    0% {
-        opacity: 0;
-        transform: translateY(15px) scale(0.98);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+    0%   { opacity: 0; transform: translateY(15px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* Estados de Navegación Lateral */
+/* ==========================================
+   NAVEGACIÓN LATERAL (SIDEBAR OSCURO)
+   ========================================== */
+
+/* Estado activo: acento gold sobre fondo oscuro */
 .nav-link.active {
-    background-color: var(--accent-light);
-    border-right: 4px solid var(--accent);
+    background-color: var(--sidebar-hover);
+    border-right: 3px solid var(--accent);
     color: var(--accent);
 }
 
-/* Estilización de tarjetas de experiencia */
+/* Los íconos y textos del link activo se iluminan */
+.nav-link.active i,
+.nav-link.active span:last-child,
+.nav-link.active > span:first-child {
+    color: var(--accent) !important;
+}
+
+/* ==========================================
+   TARJETAS DE EXPERIENCIA
+   ========================================== */
 .exp-card {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -69,4 +87,14 @@ h1, h2, h3, h4, h5, h6, .font-black {
 .exp-card:hover {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     border-color: var(--accent);
+}
+
+/* ==========================================
+   RESPONSIVE: BOTTOM NAV MÓVIL
+   ========================================== */
+@media (max-width: 767px) {
+    .nav-link.active {
+        border-right: none;
+        border-bottom: 3px solid var(--accent);
+    }
 }

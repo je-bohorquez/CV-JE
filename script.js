@@ -1,5 +1,5 @@
 const DATA = {
-    summary: "Consultor Analítico e Ingeniero Empresarial enfocado en maximizar el rendimiento financiero corporativo. Transformo infraestructuras complejas de datos en soluciones ágiles y escalables.<br/><br/><strong>• Arquitectura de Datos:</strong> Diseño de flujos ETL y almacenes centralizados.<br/><strong>• Control Estratégico:</strong> Modelado para eficiencia presupuestal y rentabilidad.<br/><strong>• BI Analytics:</strong> Dashboards y métricas ejecutivas para alta gerencia.",
+    summary: "Ingeniero Empresarial con sólida especialización en <strong>Business Intelligence y Control de Gestión</strong>, orientado al análisis financiero y la gestión presupuestal estratégica. Transformo datos complejos en información accionable que impulsa decisiones de alto impacto corporativo.<br/><br/><strong>▸ Modelado y Control Presupuestal:</strong> Diseño de modelos de datos alineados a clasificadores del MEF para la planificación, seguimiento y control de la ejecución presupuestal (PIA/PIM).<br/><strong>▸ Automatización ETL:</strong> Desarrollo de procesos de extracción, transformación y carga con SQL, Power Query y Power BI que eliminan tareas repetitivas y aseguran la integridad de los datos.<br/><strong>▸ Dashboards Financieros Estratégicos:</strong> Construcción de soluciones analíticas ejecutivas — Flujo de Caja en Tesorería, Control de Inversiones en Activos Fijos y monitoreo de Kardex remoto — que fortalecen la visibilidad operativa y aceleran la toma de decisiones.",
     kpis: [
         { label: 'Años Exp.', val: '8+', icon: '<i class="ph ph-briefcase text-[32px]"></i>' },
         { label: 'Procesos BI', val: '10+', icon: '<i class="ph ph-strategy text-[32px]"></i>' },
@@ -68,12 +68,16 @@ const DATA = {
         }
     },
     education: [
-        { title: "Especialización Business Analytics & Intelligence", inst: "Escuela de Especialización y Posgrado - EEP", year: "2026 - actualidad" },
-        { title: "Especialización Gestión Pública", inst: "Centro Integrado de Formación Profesional - CIFP", year: "feb 2025 - feb 2026" },
-        { title: "Técnico en Big Data", inst: "Fundación Carlos Slim", year: "2023" },
-        { title: "Técnico en Inteligencia de Negocios", inst: "Fundación Carlos Slim", year: "2023" },
-        { title: "Especialización en Monitoreo y Evaluación de Proyectos", inst: "Universidad ESAN", year: "2017 - 2018" },
-        { title: "Ingeniería Empresarial", inst: "UTP Universidad Tecnológica del Perú", year: "2017 - 2022" }
+        { title: "Ingeniería Empresarial", inst: "UTP — Universidad Tecnológica del Perú", year: "2017 – 2022", type: "grado" },
+        { title: "Especialización Business Analytics & Intelligence", inst: "Escuela de Especialización y Posgrado — EEP", year: "2026 – actualidad", type: "esp" },
+        { title: "Especialización en Gestión Pública", inst: "Centro Integrado de Formación Profesional — CIFP", year: "feb 2025 – feb 2026", type: "esp" },
+        { title: "Especialización en Monitoreo y Evaluación de Proyectos", inst: "Universidad ESAN", year: "2017 – 2018", type: "esp" },
+        { title: "Inteligencia de Negocios — Power BI", inst: "CEPS — UNI", year: "marzo 2023", type: "cert" },
+        { title: "SQL Server — Nivel Intermedio", inst: "CINFO — UNMSM", year: "feb – mar 2023", type: "cert" },
+        { title: "Técnico en Big Data", inst: "Fundación Carlos Slim", year: "2023", type: "cert" },
+        { title: "Técnico en Inteligencia de Negocios", inst: "Fundación Carlos Slim", year: "2023", type: "cert" },
+        { title: "Gestión por Procesos", inst: "TECSUP", year: "2017", type: "cert" },
+        { title: "Gerencia, Diseño y Evaluación de Proyectos — PMBOK", inst: "Corporación Americana de Desarrollo — CAD", year: "2015", type: "cert" }
     ],
     merits: [
         { title: "Premio CAD (Ciudadanos al Día)", body: "Reconocimiento nacional por indicadores de optimización de infraestructura (2017)." },
@@ -151,32 +155,47 @@ const UI = {
 
     renderEducation() {
         const container = document.getElementById('edu-merit-container');
+        const grado = DATA.education.filter(e => e.type === 'grado');
+        const esps  = DATA.education.filter(e => e.type === 'esp');
+        const certs = DATA.education.filter(e => e.type === 'cert');
+
+        const renderGroup = (items, delay0) => items.map((e, i) => `
+            <div class="flex gap-4 stagger-anim" style="animation-delay: ${(delay0 + i) * 120}ms">
+                <div class="w-1 rounded-full ${e.type === 'grado' ? 'bg-navy' : e.type === 'esp' ? 'bg-gold' : 'bg-gray-300'}"></div>
+                <div>
+                    <h4 class="font-display font-bold text-charcoal text-sm">${e.title}</h4>
+                    <p class="text-xs text-gray-500">${e.inst} &nbsp;·&nbsp; ${e.year}</p>
+                </div>
+            </div>
+        `).join('');
+
         const eduHTML = `
-            <div class="space-y-6">
-                    <h3 class="text-xl font-display font-bold text-navy mt-12 mb-6 flex items-center gap-2">
-                        <i class="ph ph-student text-[28px]"></i>
-                        Académico
-                    </h3>
-                ${DATA.education.map((e, index) => `
-                    <div class="flex gap-4 stagger-anim" style="animation-delay: ${index * 150}ms">
-                        <div class="w-1 bg-gray-200 rounded-full"></div>
-                        <div>
-                            <h4 class="font-display font-bold text-charcoal">${e.title}</h4>
-                            <p class="text-sm text-gray-500">${e.inst} | ${e.year}</p>
-                        </div>
-                    </div>
-                `).join('')}
+            <div class="space-y-5">
+                <h3 class="text-lg font-display font-bold text-navy mb-4 flex items-center gap-2">
+                    <i class="ph ph-graduation-cap text-[24px]"></i> Grado Académico
+                </h3>
+                ${renderGroup(grado, 0)}
+
+                <h3 class="text-lg font-display font-bold text-navy mt-8 mb-4 flex items-center gap-2">
+                    <i class="ph ph-book-open-text text-[24px]"></i> Especializaciones
+                </h3>
+                ${renderGroup(esps, grado.length)}
+
+                <h3 class="text-lg font-display font-bold text-navy mt-8 mb-4 flex items-center gap-2">
+                    <i class="ph ph-certificate text-[24px]"></i> Certificaciones
+                </h3>
+                ${renderGroup(certs, grado.length + esps.length)}
             </div>
         `;
+
         const meritHTML = `
-            <div class="space-y-6">
-                    <h3 class="text-xl font-display font-bold text-gold mb-6 flex items-center gap-2">
-                        <i class="ph ph-medal text-[28px]"></i>
-                        Reconocimientos
-                    </h3>
+            <div class="space-y-5">
+                <h3 class="text-lg font-display font-bold text-gold mb-4 flex items-center gap-2">
+                    <i class="ph ph-medal text-[24px]"></i> Reconocimientos
+                </h3>
                 ${DATA.merits.map((m, index) => `
-                    <div class="bg-cream/50 p-6 rounded-2xl border border-cream stagger-anim" style="animation-delay: ${index * 150}ms">
-                        <h4 class="font-display font-bold text-navy mb-1">${m.title}</h4>
+                    <div class="bg-cream/50 p-5 rounded-2xl border border-cream stagger-anim" style="animation-delay: ${index * 150}ms">
+                        <h4 class="font-display font-bold text-navy mb-1 text-sm">${m.title}</h4>
                         <p class="text-sm text-mgray text-justify">${m.body}</p>
                     </div>
                 `).join('')}
